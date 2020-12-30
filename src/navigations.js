@@ -6,6 +6,7 @@ import home from './screens/home';
 import wallet from './screens/wallet';
 import pay from './screens/pay';
 import { FontAwesome, Entypo, AntDesign, Ionicons, Feather } from '@expo/vector-icons';
+import PayButton from './components/payButton';
 
 const icons = {
   home:{
@@ -25,7 +26,7 @@ const icons = {
 
   notifications:{
     lib: Ionicons,
-    name: 'notifications'
+    name: 'notifications-outline'
   },
 
   settings:{
@@ -39,12 +40,24 @@ const Tab = createBottomTabNavigator();
 export default function Navigations() {
   return (
     <Tab.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: ({color, size}) => {
+      screenOptions={({route, navigation}) => ({
+        tabBarIcon: ({color, size, focused}) => {
           const {lib: Icon, name} = icons[route.name];
+          if(route.name === 'pay')
+            return(
+              <PayButton
+                onPress={() => navigation.navigate('pay')}
+                focused={focused}
+              />
+          )
+
           return (<Icon name={name} size={size} color={color}/>)
         }
       })}
+      tabBarOptions={{
+        activeTintColor: '#161a17',
+
+      }}
     >
       <Tab.Screen
         name='home'
@@ -68,7 +81,7 @@ export default function Navigations() {
         name='pay'
         component={pay}
         options={{
-          title: 'pay'
+          title: ''
         }}
       />
 
