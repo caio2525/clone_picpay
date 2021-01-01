@@ -6,9 +6,12 @@ import Navigation from './navigations';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Navigation/>
-    </NavigationContainer>
+    <>
+      <StatusBar barStyle='light-content' backgroundColor='#acaeb0'/>
+      <NavigationContainer>
+        <Navigation/>
+      </NavigationContainer>
+    </>
   );
 }
 
