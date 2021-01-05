@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.ScrollView.attrs(() => ({
+  showsHorizontalScrollIndicator: false,
   horizontal: true,
   contentContainerStyle: {
     alignItems: 'center',
