@@ -4,7 +4,7 @@ const statusBarHeight = Constants.statusBarHeight + 5
 const teste = 29;
 
 export const Wrapper = styled.SafeAreaView`
-  backgroundColor: #cbced1;
+  backgroundColor: #cdd1ce;
   flex: 1;
   paddingTop: ${`${statusBarHeight}px`};
 `

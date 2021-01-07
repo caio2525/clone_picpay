@@ -40,6 +40,7 @@ const Tab = createBottomTabNavigator();
 export default function Navigations() {
   return (
     <Tab.Navigator
+      initialRouteName="wallet"
       screenOptions={({route, navigation}) => ({
         tabBarIcon: ({color, size, focused}) => {
           const {lib: Icon, name} = icons[route.name];
