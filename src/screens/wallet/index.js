@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react';
 import {Switch} from 'react-native';
 import {Wrapper,
   Header,
@@ -23,7 +24,9 @@ import {Wrapper,
   Img,
   CardBody,
   CardFooter,
-  CardLabel
+  CardLabel,
+  UseTicketButton,
+  UseTicketLabel,
 } from './styles'
 
 import { Feather } from '@expo/vector-icons';
@@ -31,19 +34,37 @@ import { MaterialCommunityIcons, FontAwesome, AntDesign } from '@expo/vector-ico
 
 import creditCard from '../../images/credit-card.png';
 
+
+
 export default function wallet() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [useBalance, setUseBalance] = useState(true);
+
+  function handleToggleVisibility(){
+    setIsVisible((prevState) => !prevState);
+  }
+
+  function handleToggleBalance(){
+    setUseBalance((prevState) => !prevState);
+  }
+
   return(
 
       <Wrapper>
-        <Header colors={['#52E7BC', '#1Ab563']}>
+        <Header
+          colors={
+            useBalance
+            ? ['#52E7BC', '#1Ab563']
+            : ['#D3D3D3', '#868686']
+          }>
           <HeaderContainer>
 
             <Title> Saldo PicPay </Title>
 
             <BalanceContainer>
-              <Value>R$<Bold> 0,00</Bold> </Value>
-              <EyeButton>
-                <Feather name='eye' size={28} color="#fff"/>
+              <Value>R$ <Bold>{isVisible ? '0,00' : '----'}</Bold> </Value>
+              <EyeButton onPress={handleToggleVisibility}>
+                <Feather name={isVisible ? 'eye' : 'eye-off'} size={28} color="#fff"/>
               </EyeButton>
             </BalanceContainer>
             <Info> Seu Saldo está rendendo 100% do CDI </Info>
@@ -66,7 +87,10 @@ export default function wallet() {
 
         <UseBalance>
           <UseBalanceTitle>Usar Saldo ao pagar</UseBalanceTitle>
-          <Switch />
+          <Switch
+            value={useBalance}
+            onValueChange={handleToggleBalance}
+          />
         </UseBalance>
 
         <PaymentMethod>
@@ -96,7 +120,13 @@ export default function wallet() {
             </CardFooter>
           </Card>
 
+          <UseTicketButton>
+            <MaterialCommunityIcons name='ticket-outline' size={20} color='#0DB060'/>
+            <UseTicketLabel>Usar código promocional</UseTicketLabel>
+          </UseTicketButton>
         </PaymentMethod>
+
+
 
       </Wrapper>
 

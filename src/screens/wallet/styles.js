@@ -136,3 +136,17 @@ export const CardLabel = styled.Text`
   font-weight: bold;
   margin-left: 15px;
 `
+
+export const UseTicketButton = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 25px;
+`
+
+export const UseTicketLabel = styled.Text`
+color: #0DB060;
+font-size: 14px;
+font-weight: bold;
+margin-left: 15px;
+text-decoration-line: underline;
+`
