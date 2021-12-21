@@ -23,5 +23,5 @@ To run the project locally follow the steps below:
    ```
 Open your expo app on your smartphone device and scan the qr code.
 
-![Wallet](https://i.ibb.co/h7P8C1g/Whats-App-Image-2021-12-20-at-15-02-06.jpg)
-![Home](https://i.ibb.co/gdLRfsX/Whats-App-Image-2021-12-20-at-15-02-23.jpg)
+![Wallet](https://i.ibb.co/FnTFpxv/small-Size-Wallet.jpg)
+![Home](https://i.ibb.co/TYXWXxd/small-Size-Home.jpg)
